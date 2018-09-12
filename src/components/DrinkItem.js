@@ -29,29 +29,39 @@ const styles = {
 
 class DrinkItem extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
 
     this.state = {
-      favorited: false
+      favorited: props.isFavorite
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(this.state.favorited  !== nextProps.favorited) {
+      this.setState({favorited: false});
     }
   }
 
   favorite(drink) {
-    this.props.favoriteDrink(drink);
-    this.setState({favorited: true});
+    if(this.state.favorited === false){
+      this.props.favoriteDrink(drink);
+      this.setState({favorited: true});
+    } 
   }
   render() {
     let { drink } = this.props;
+    console.log('state', this.state);
+    console.log('props', this.props);
     return (
       <Paper className="paper" elevation={5}>
         <Card className="card" >
           <div className="text">
             <Typography style={styles.heading} variant="headline">
             {
-              this.state.favorited ?  <span style={styles.redHeart}>&#10084;</span>:
-              <span style={styles.heart} onClick={() => this.favorite(drink) }>&#10084;</span>
+              this.props.isFavorite ?  <div></div> :
+                <span style={{color: this.state.favorited ? 'red' : 'pink' }} onClick={() => this.favorite(drink) }>&#10084;</span>
             }
               {drink.strDrink}
             </Typography>

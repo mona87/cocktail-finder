@@ -11,7 +11,11 @@ class DrinkList extends Component {
         <div>
           { drinks && drinks.length > 0 ? drinks.map((drink, index) => {
             return (
-              <DrinkItem key={index} drink={drink} />
+              <DrinkItem 
+              key={index} 
+              drink={drink}
+              isFavorite={false}
+              favoriteButton={true} />
             )
            })
          : false }
