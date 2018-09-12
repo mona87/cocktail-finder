@@ -1,0 +1,86 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: calc(10/16);
+}
+
+body {
+    text-align: center;
+    padding: 5rem;
+    box-sizing: border-box;
+    background-color: #406E8E;
+    font-family: Roboto, sans-serif;
+    min-width: 10rem;
+    color: #fff;
+}
+
+.app-wrapper {
+    margin: auto;
+    max-width: 60rem;
+}
+
+.paper {
+    margin: 5rem;
+    min-height: 15.1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    min-height: 15.2rem;
+    width: 100%;
+}
+
+.image {
+    width: 15.1rem;
+    height: auto;
+    background-size: cover;
+}
+
+.text {
+  width: 70%;
+  padding: 1rem;
+  text-align: left;
+  
+}
+
+.title {
+  margin-top: 3rem;
+}
+
+
+@media  screen and (max-width: 667px) { 
+
+    body {
+      padding: 2rem;
+    }
+    .paper {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 3rem;
+    }
+    .card {
+       flex-direction: column-reverse; 
+       width: 100%;
+    }
+
+    .text{
+        width: 100%;
+    }
+
+    .image {
+        height: 15.1rem;
+        width: 100%;
+    }
+
+    .title {
+      margin-top: 4rem;
+    }
+
+}
