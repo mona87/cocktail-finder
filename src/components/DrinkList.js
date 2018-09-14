@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DrinkItem from './DrinkItem';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 class DrinkList extends Component {
@@ -22,8 +23,8 @@ class DrinkList extends Component {
             )
            })
          : this.props.showMsg ?
-          <div className="not-found">Search for a drink to get started. </div> :
-          <div className="not-found">No drinks were found. </div> 
+          <div className="not-found">Search for a drink to get started. </div> : 
+          <div className="not-found">No drinks were found. </div>
           }
         </div>
     );

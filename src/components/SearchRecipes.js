@@ -52,7 +52,7 @@ class SearchRecipes extends Component {
   }
 
   search() {
-    this.props.showMsg(false);
+ 
 
     let { drinkName } = this.state;
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`;
@@ -60,7 +60,10 @@ class SearchRecipes extends Component {
     fetch(url, {
       method: 'GET'
     }).then(response => response.json())
-      .then(json => this.props.setRecipes(json));
+      .then(json => {
+        this.props.setRecipes(json);
+        this.props.showMsg(false);
+      });
 
       this.nextPath('/'); 
 
