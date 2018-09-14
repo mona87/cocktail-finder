@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-// import SearchIcon from '@material-ui/icons/Search';
+import SearchIcon from '@material-ui/icons/Search';
 import Input from '@material-ui/core/Input';
 import { connect } from 'react-redux';
 import { setRecipes, showMsg } from '../actions';
@@ -13,17 +13,21 @@ import {withRouter} from 'react-router-dom';
 
 const styles = {
   search: {
-    width: '100%'
+    width: '100%',
+    display: 'flex',
+    height: '2.1rem',
+    backgroundColor: 'rgba(grey, .5)',
+    alignItems: 'center',
+    borderRadius: '2rem',
+    backgroundColor: 'rgba(130, 130, 130,.1)',
+    paddingLeft: '1rem',
+    maxWidth: '50rem',
+    margin: 'auto'
   },
-  // searchIcon: {
-  //   width: theme.spacing.unit * 9,
-  //   height: '100%',
-  //   position: 'absolute',
-  //   pointerEvents: 'none',
-  //   display: 'flex',
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  // },
+  searchIcon: {
+    color: 'grey',
+    marginRight: '1rem',
+  },
   input: {
     width: '100%'
   },
@@ -70,12 +74,11 @@ class SearchRecipes extends Component {
           <Toolbar className="toolbar" >
             <div style={{display:'flex', alignItems: 'center', width: '100%'}}>
               <SearchMenu />
-              <div className={styles.searchIcon}> </div>
               <div style={styles.search}>
-
+                <SearchIcon  style={styles.searchIcon}/>
                 <Input
                   style={styles.input}
-                  placeholder="Search for margarita, gin, ect..."
+                  placeholder="Search..."
                   disableUnderline
                   onChange={event => this.setState({ drinkName: event.target.value })}
                   onKeyPress={event => {

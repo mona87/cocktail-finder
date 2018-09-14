@@ -38,6 +38,7 @@ class DrinkItem extends Component {
       } else if (val === 'strMeasure' && drink[key] && drink[key].length > 0) {
         measureArray.push(drink[key])
       }
+      return null
     });
 
     return measureArray.map((measurement, i) => {
