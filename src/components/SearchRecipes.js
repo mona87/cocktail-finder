@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
-// import TextField from "material-ui/TextField";
-// import RaisedButton from "material-ui/RaisedButton";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-// import Typography from '@material-ui/core/Typography';
 // import SearchIcon from '@material-ui/icons/Search';
 import Input from '@material-ui/core/Input';
 import { connect } from 'react-redux';
 import { setRecipes } from '../actions';
+import SearchMenu from './SearchMenu';
+import {withRouter} from 'react-router-dom';
+
+
 
 
 const styles = {
   search: {
-    // position: 'relative',
-    // borderRadius: '2rem',
-    // backgroundColor: '#fff',
-    // opacity: 0.5,
-    // marginRight: '0.5rem',
-    // marginLeft: '2rem',
-
-    // [theme.breakpoints.up('sm')]: {
-    //   marginLeft:'3rem',
-    //   width: 'auto',
-    // },
+    width: '100%'
   },
   // searchIcon: {
   //   width: theme.spacing.unit * 9,
@@ -34,16 +25,7 @@ const styles = {
   //   justifyContent: 'center',
   // },
   input: {
-
-    //   paddingTop: theme.spacing.unit,
-    //   paddingRight: theme.spacing.unit,
-    //   paddingBottom: theme.spacing.unit,
-    //   paddingLeft: theme.spacing.unit * 10,
-    //   transition: theme.transitions.create('width'),
-    //   width: '100%',
-    //   [theme.breakpoints.up('md')]: {
-    //     width: 200,
-    //   },
+    width: '100%'
   },
 };
 
@@ -53,12 +35,20 @@ class SearchRecipes extends Component {
     super();
 
     this.state = {
-      drinkName: 'margarita'
+      drinkName: '',
     }
   }
 
+  nextPath(path) {
+    console.log(this.props);
+    this.props.history.push(path);
+  }
+
+  componentDidMount() {
+  }
+
   search() {
- 
+
     let { drinkName } = this.state;
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`;
     console.log(drinkName);
@@ -67,23 +57,24 @@ class SearchRecipes extends Component {
     }).then(response => response.json())
       .then(json => this.props.setRecipes(json));
 
+      this.nextPath('/'); 
+
   }
+
   render() {
     return (
-      <form>
         <AppBar
           style={{ backgroundColor: "#fff" }}
         >
-          <Toolbar >
-            <div className={styles.search}>
-              <div className={styles.searchIcon}>
-
-              </div>
+          <Toolbar  >
+            <div style={{display:'flex', alignItems: 'center', width: '100%'}}>
+              <SearchMenu />
+              <div className={styles.searchIcon}> </div>
               <div style={styles.search}>
 
                 <Input
                   style={styles.input}
-                  placeholder="Search…"
+                  placeholder="Search for margarita, gin, ect..."
                   disableUnderline
                   onChange={event => this.setState({ drinkName: event.target.value })}
                   onKeyPress={event => {
@@ -97,9 +88,9 @@ class SearchRecipes extends Component {
             </div>
           </Toolbar>
         </AppBar>
-      </form>
     );
   }
 }
 
-export default connect(null, { setRecipes })(SearchRecipes);
+
+export default connect(null, { setRecipes }) (withRouter(SearchRecipes));
