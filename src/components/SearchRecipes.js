@@ -4,7 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 // import SearchIcon from '@material-ui/icons/Search';
 import Input from '@material-ui/core/Input';
 import { connect } from 'react-redux';
-import { setRecipes } from '../actions';
+import { setRecipes, showMsg } from '../actions';
 import SearchMenu from './SearchMenu';
 import {withRouter} from 'react-router-dom';
 
@@ -48,6 +48,7 @@ class SearchRecipes extends Component {
   }
 
   search() {
+    this.props.showMsg(false);
 
     let { drinkName } = this.state;
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`;
@@ -93,4 +94,4 @@ class SearchRecipes extends Component {
 }
 
 
-export default connect(null, { setRecipes }) (withRouter(SearchRecipes));
+export default connect(null, { setRecipes, showMsg }) (withRouter(SearchRecipes));

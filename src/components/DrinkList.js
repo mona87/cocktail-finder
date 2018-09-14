@@ -5,34 +5,26 @@ import DrinkItem from './DrinkItem';
 
 class DrinkList extends Component {
 
-  componentWillReceiveProps(nextProps, prevState) {
-    console.log(this.props.favoriteDrinks);
-    // this.props.favoriteDrinksArray.filter((drink, i) => {
-
-    //   if(drink.idDrink === this.props.id){
-    //     console.log('yep', this.props.id)
-    //     this.setState({favorited: true});
-    //   } else {
-    //     this.setState({favorited: false});
-    //   }
-    //   });
-  }
   render() {
-    // console.log('props', this.props);
     const { drinks } = this.props.recipes;
+    console.log('s',this.props)
     return (
         <div>
          <h2 className="title">Cocktail Finder</h2>
-          { drinks ? drinks.map((drink, index) => {
+          { drinks && drinks.length > 0 ? drinks.map((drink, index) => {
             return (
               <DrinkItem 
               key={index} 
               drink={drink}
               id={drink.idDrink}
-              favoriteButton={true} />
+              favoriteButton={true}
+              />
             )
            })
-         : <div className="not-found">No drinks were found. </div> }
+         : this.props.showMsg ?
+          <div className="not-found">Search for a drink to get started. </div> :
+          <div className="not-found">No drinks were found </div> 
+          }
         </div>
     );
   }

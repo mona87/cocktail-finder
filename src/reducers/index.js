@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import { SET_RECIPES, FAVORITE_DRINK, REMOVE_INDEX, SHOW_HEART, HIDE_HEART } from '../actions';
+import { SET_RECIPES, FAVORITE_DRINK, REMOVE_INDEX, 
+  SHOW_HEART, HIDE_HEART, SHOW_MSG } from '../actions';
 
 
 function recipes(state = [], action) {
@@ -38,6 +39,16 @@ function favoriteDrinks(state = [], action) {
   console.log('s', state)
 }
 
-const rootReducer = combineReducers({recipes, favoriteDrinks, showHeart});
+
+function showMsg(state = [], action) {
+  switch(action.type) {
+    case SHOW_MSG:
+    return action.bool
+    default:
+    return state;
+  }
+}
+
+const rootReducer = combineReducers({recipes, favoriteDrinks, showHeart, showMsg});
 
 export default rootReducer;

@@ -3,6 +3,7 @@ export const FAVORITE_DRINK = 'FAVORITE_DRINK';
 export const REMOVE_INDEX = 'REMOVE_INDEX';
 export const SHOW_HEART = 'SHOW_HEART';
 export const HIDE_HEART = 'HIDE_HEART';
+export const SHOW_MSG = 'SHOW_MSG';
 
 export function setRecipes(items) {
     return {
@@ -40,5 +41,12 @@ export function removeDrink(id) {
   return {
     type: REMOVE_INDEX,
     id
+  }
+}
+
+export function showMsg(bool){
+  return {
+    type: SHOW_MSG,
+    bool: false
   }
 }
