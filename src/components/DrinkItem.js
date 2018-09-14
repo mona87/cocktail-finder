@@ -40,12 +40,14 @@ class DrinkItem extends Component {
       }
     });
 
-    return measureArray.map((obj, i) => {
-      return (
-        <div key={i} style={{fontWeight: 500}}>
-          <span >{obj}</span><span>{ingredientArray[i]}</span>
-        </div>
-      )
+    return measureArray.map((measurement, i) => {
+      if(measurement && measurement.length > 0 && ingredientArray[i] && ingredientArray[i].length > 0 ){
+        return (
+          <div key={i} style={{fontWeight: 500}}>
+            <span >{measurement} </span><span>{ingredientArray[i]}</span>
+          </div>
+        )
+      }
     })
   }
 
@@ -67,7 +69,7 @@ class DrinkItem extends Component {
                   :
                   <span
                     className="heart"
-                    style={{ color: 'pink' }}
+                    style={{ color: '#FFB6C1' }}
                     onClick={() => this.favorite(drink)}>&#10084;
                   </span>
               }

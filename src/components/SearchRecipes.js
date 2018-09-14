@@ -67,7 +67,7 @@ class SearchRecipes extends Component {
         <AppBar
           style={{ backgroundColor: "#fff" }}
         >
-          <Toolbar  >
+          <Toolbar className="toolbar" >
             <div style={{display:'flex', alignItems: 'center', width: '100%'}}>
               <SearchMenu />
               <div className={styles.searchIcon}> </div>

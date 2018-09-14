@@ -36,7 +36,6 @@ function favoriteDrinks(state = [], action) {
     default:
     return state;
   }
-  console.log('s', state)
 }
 
 

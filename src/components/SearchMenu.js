@@ -30,7 +30,7 @@ class SearchMenu extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div style={{marginRight: '2rem'}}>
+      <div className="menu">
         <Button onClick={this.toggleDrawer(true)}>Menu</Button>
         <Drawer open={this.state.left} onClose={this.toggleDrawer(false)}>
           <div

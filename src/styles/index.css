@@ -79,6 +79,10 @@ body {
   margin-top: 3rem;
 }
 
+.menu {
+    margin-right: 2rem;
+}
+
 
 @media  screen and (max-width: 667px) { 
 
@@ -107,6 +111,15 @@ body {
 
     .title {
       margin-top: 4rem;
+    }
+    
+    .menu {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .toolbar {
+        padding-left: .2rem!important;
     }
 
 }
