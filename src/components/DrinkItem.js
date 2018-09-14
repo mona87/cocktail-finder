@@ -63,7 +63,7 @@ class DrinkItem extends Component {
               {
                 showHeartArray.some(heart => heart.id === drink.idDrink) ?
                   <span
-                    style={{ color: 'red' }}
+                    style={{ color: '#FF0000' }}
                     onClick={() => this.removeDrink(id)}
                     className="heart">&#10084;
                   </span>
