@@ -15,11 +15,6 @@ const styles = {
 
 class DrinkItem extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
-
   favorite(drink) {
     this.props.showHeart(drink.idDrink, true);
     this.props.favoriteDrink(drink);
@@ -30,20 +25,43 @@ class DrinkItem extends Component {
     this.props.removeDrink(id);
   }
 
-  render() {
-    let { drink, showHeartArray } = this.props;
+  getIngredients(drink) {
+    let ingredientArray = [];
+    let measureArray = [];
 
+    Object.keys(drink).map((key, i) => {
+      // console.log(key)
+      let val = key.substring(0, key.length - 1);
+      // console.log(val)
+      if (val === 'strIngredient' && drink[key] && drink[key].length > 0) {
+        ingredientArray.push(drink[key])
+      } else if (val === 'strMeasure' && drink[key] && drink[key].length > 0) {
+        measureArray.push(drink[key])
+      }
+    });
+
+    return measureArray.map((obj, i) => {
+      return (
+        <div key={i} style={{fontWeight: 500}}>
+          <span >{obj}</span><span>{ingredientArray[i]}</span>
+        </div>
+      )
+    })
+  }
+
+  render() {
+    let { drink, showHeartArray, id } = this.props;
+    // console.log(drink);
     return (
       <Paper className="paper" elevation={5}>
         <Card className="card" >
           <div className="text">
             <Typography style={styles.heading} variant="headline">
               {
-
                 showHeartArray.some(heart => heart.id === drink.idDrink) ?
                   <span
                     style={{ color: 'red' }}
-                    onClick={() => this.removeDrink(this.props.id)}
+                    onClick={() => this.removeDrink(id)}
                     className="heart">&#10084;
                   </span>
                   :
@@ -56,6 +74,9 @@ class DrinkItem extends Component {
               {drink.strDrink}
             </Typography>
             <Typography variant="subheading" color="textSecondary">
+              <div style={{ marginBottom: '1rem' }}>
+                {this.getIngredients(drink)}
+              </div>
               {drink.strInstructions}
             </Typography>
           </div>

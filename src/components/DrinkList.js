@@ -28,7 +28,7 @@ class DrinkList extends Component {
               <DrinkItem 
               key={index} 
               drink={drink}
-              isFavorite={false}
+              id={drink.idDrink}
               favoriteButton={true} />
             )
            })

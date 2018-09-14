@@ -11,12 +11,10 @@ class FavoriteDrinkList extends Component {
        <h2 className="title">Favorite Drinks</h2>
       <div>
         {this.props.favoriteDrinks.map((drink, index) => {
-          console.log('i', index)
           return (
             <DrinkItem 
             key={index} 
             drink={drink}
-            isFavorite={true}
             id={drink.idDrink}
             favoriteButton={false} />
           )
