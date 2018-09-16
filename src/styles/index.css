@@ -31,10 +31,46 @@ body {
 }
 
 .heart {
-    display: inline-block;
-    margin-right: 1rem;
+    /* width: 2rem;
+    height: 2rem;
     cursor: pointer;
+    display: inline-block;
+    background-repeat:no-repeat; */
 }
+    /* --d:1.5rem;
+    width:var(--d);
+    height:var(--d);
+    background:
+     radial-gradient(circle at 50% 83%, red 29%, transparent 30%) calc(-1 * var(--d)/5) calc(-1 * var(--d)/2)/100% 100%,
+     radial-gradient(circle at 50% 83%, red 29%, transparent 30%) calc(var(--d)/5) calc(-1 * var(--d)/2)/100% 100%,
+     linear-gradient(to bottom left,red 43%,transparent 43%) bottom left/50% 50%,
+     linear-gradient(to bottom right,red 43%,transparent 43%) bottom right/50% 50%;
+
+
+}
+
+/* .heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: .8rem;
+    height: 1.3rem;
+    border-radius: 50px 50px 0 0;
+    /* background: red; */
+/* }  */
+
+
+/* .heart::before {
+    left: .8rem;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+} */
+
+/* .heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+} */
 
 .link a {
     text-decoration: none;

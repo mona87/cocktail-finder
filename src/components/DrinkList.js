@@ -8,7 +8,6 @@ class DrinkList extends Component {
 
   render() {
     const { drinks } = this.props.recipes;
-    console.log('s',this.props)
     return (
         <div>
          <h2 className="title">Cocktail Finder</h2>

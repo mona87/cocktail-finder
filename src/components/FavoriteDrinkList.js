@@ -6,7 +6,7 @@ import DrinkItem from './DrinkItem';
 class FavoriteDrinkList extends Component {
   render() {
     return (
-      <div>
+      <div className="app-wrapper">
         <SearchRecipes />
        <h2 className="title">Favorite Drinks</h2>
       <div>
