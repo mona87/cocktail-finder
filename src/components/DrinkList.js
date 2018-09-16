@@ -10,7 +10,7 @@ class DrinkList extends Component {
     const { drinks } = this.props.recipes;
     return (
         <div>
-         <h2 className="title">Cocktail Finder</h2>
+         <h2 className="title">Cocktail Search</h2>
           { drinks && drinks.length > 0 ? drinks.map((drink, index) => {
             return (
               <DrinkItem 

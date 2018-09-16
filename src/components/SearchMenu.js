@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
-
+import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = {
   list: {
@@ -32,7 +32,7 @@ class SearchMenu extends Component {
     const { classes } = this.props;
     return (
       <div className="menu">
-        <Button onClick={this.toggleDrawer(true)}>Menu</Button>
+        <Button onClick={this.toggleDrawer(true)}> <MenuIcon /></Button>
         <Drawer open={this.state.left} onClose={this.toggleDrawer(false)}>
           <div
             tabIndex={0}
